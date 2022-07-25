@@ -59,17 +59,17 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/earth_loadingscreen.png
-    - assets/desktopsitter_loadingscreen.png
-    - assets/standingunderwear_loadingscreen.png
+    - assets/
 
   fonts:
     - family: Akshar
       fonts:
         - asset: assets/Akshar-VariableFont_wght.ttf
+        - asset: assets/Akshar-Bold.ttf
     - family: AbhayaLibre-SemiBold
       fonts:
         - asset: assets/AbhayaLibre-Semibold.ttf
+        - asset: assets/AbhayaLibre-Medium.ttf
 
 
   # To add assets to your application, add an assets section, like this:

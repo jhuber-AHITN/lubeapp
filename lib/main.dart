@@ -144,38 +144,44 @@ class _IntroductionState extends State<Introduction> {
                 ],
               ),
             ),
-              Stack(
+            Stack(
               alignment: Alignment.center,
-                children: <Widget>[
-                  Container(
-                    height: MediaQuery.of(context).size.height*0.0878,
-                    width: MediaQuery.of(context).size.width,
-                    alignment: Alignment.center,
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height*0.0878,
-                    width: MediaQuery.of(context).size.width*0.7292,
-                    alignment: Alignment.center,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        //Reference Height: 683,428
-                        //Reference Width: 411,4285
-                        padding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.2017, top: MediaQuery.of(context).size.height*0.0293, right: MediaQuery.of(context).size.width*0.2017, bottom: MediaQuery.of(context).size.height*0.0293),
-                        primary: const Color(0xFFffe5e5),
-                      ),
-                      onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => LoginPage()),
-                      ),
-                      child: const Text('Next',
-                      style:  TextStyle(
-                        fontSize: 16,
-                        color: Color(0xFF1e0412),
-                      )),
-
+              children: <Widget>[
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.0878,
+                  width: MediaQuery.of(context).size.width,
+                  alignment: Alignment.center,
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.0878,
+                  width: MediaQuery.of(context).size.width * 0.7292,
+                  alignment: Alignment.center,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      //Reference Height: 683,428
+                      //Reference Width: 411,4285
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.2017,
+                          top: MediaQuery.of(context).size.height * 0.0293,
+                          right: MediaQuery.of(context).size.width * 0.2017,
+                          bottom: MediaQuery.of(context).size.height * 0.0293),
+                      primary: const Color(0xFFffe5e5),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        )
                     ),
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    ),
+                    child: const Text('Next',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color(0xFF1e0412),
+                        )),
                   ),
-                ],
-              ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
@@ -191,6 +197,102 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          Container(
+            //color: Colors.red,
+            alignment: Alignment.topCenter,
+            margin: EdgeInsets.symmetric(horizontal: 0, vertical: 4),
+            width: MediaQuery.of(context).size.width,
+            height: 430,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/robothello_welcome.png"),
+              ),
+            ),
+          ),
+          Container(
+            height: 26,
+            width: MediaQuery.of(context).size.width,
+            alignment: Alignment.center,
+            child: const Text('Welcome to Lube.',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontFamily: "Akshar-Bold",
+                    fontWeight: FontWeight.bold)),
+          ),
+          Container(
+            height: 40,
+            width: 295,
+            alignment: Alignment.center,
+            child: const Text(
+              'Finding a date should be simple and fun. \nThere’s someone for everyone!',
+              style: TextStyle(fontSize: 14, fontFamily: "Abhaya Libre Medium",),
+                textAlign: TextAlign.center,
+            ),
+          ),
+
+          Container(
+            height: 90,
+            width: 400,
+            alignment: Alignment.center,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                //Reference Height: 683,428
+                //Reference Width: 411,4285
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.2617,
+                    top: MediaQuery.of(context).size.height * 0.020,
+                    right: MediaQuery.of(context).size.width * 0.2617,
+                    bottom: MediaQuery.of(context).size.height * 0.020),
+                primary: const Color(0xFF171C3D),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  )
+              ),
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => LoginPage()),
+              ),
+              child: const Text('Sign Up',
+                  style: TextStyle(
+                    fontFamily: "Abhaya Libre Medium",
+                    fontSize: 20,
+                    color: Colors.white,
+                  )),
+            ),
+          ),
+
+          Container(
+            height: 55,
+            width: 295,
+            alignment: Alignment.center,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                //Reference Height: 683,428
+                //Reference Width: 411,4285
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.2617,
+                    top: MediaQuery.of(context).size.height * 0.020,
+                    right: MediaQuery.of(context).size.width * 0.2617,
+                    bottom: MediaQuery.of(context).size.height * 0.020),
+                primary: Color(0xFFffe5e5),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                )
+              ),
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => LoginPage()),
+              ),
+              child: const Text('Sign in',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Color(0xFF1e0412),
+                  )),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
