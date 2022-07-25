@@ -7,6 +7,9 @@ void main() {
   runApp(MyApp());
 }
 
+//Reference Height: 683,428
+//Reference Width: 411,4285
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,10 +31,12 @@ class _IntroductionState extends State<Introduction> {
     'assets/desktopsitter_loadingscreen.png',
     'assets/standingunderwear_loadingscreen.png'
   ];
+
+  //Bei erfolgreicher Finanzierung ohne Diamanten zweiten Text ändern auf "Without Limitations"
   static const List<String> titles = [
     'Connect with People',
     'Your way!',
-    'Find Your Duo,',
+    'Find Your Duo',
   ];
 
   static const List<String> texts = [
@@ -66,7 +71,7 @@ class _IntroductionState extends State<Introduction> {
                     width: MediaQuery.of(context).size.width * 0.6233,
                     child: Text(titles[index],
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontFamily: 'Akshar',
                             fontSize: 28,
                             fontWeight: FontWeight.w400,
@@ -78,10 +83,10 @@ class _IntroductionState extends State<Introduction> {
                   top: MediaQuery.of(context).size.height * 0.667,
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.1463,
-                    width: 200,
+                    width: MediaQuery.of(context).size.width * 0.4861,
                     child: Text(texts[index],
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontFamily: 'AbhayaLibre-SemiBold',
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -101,48 +106,77 @@ class _IntroductionState extends State<Introduction> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: PageView(
-            children: [
-              Column(
-                children: <Widget>[
-                  Container(),
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.7519,
-                    child: PageView.builder(
-                      controller: controller,
-                      // itemCount: pages.length,
-                      itemBuilder: (_, index) {
-                        return pages[index % pages.length];
-                      },
-                    ),
-                  ),
-                  Positioned(
-                    top: MediaQuery.of(context).size.height * 0.5853,
-                    child: SmoothPageIndicator(
-                      controller: controller,
-                      count: pages.length,
-                      effect: const WormEffect(
-                        dotHeight: 16,
-                        dotWidth: 16,
-                        type: WormType.thin,
-                        // strokeWidth: 5,
+        body: Column(
+          children: <Widget>[
+            Container(
+              height: MediaQuery.of(context).size.height * 0.87,
+              width: MediaQuery.of(context).size.width,
+              child: PageView(
+                children: [
+                  Column(
+                    children: <Widget>[
+                      Container(),
+                      Container(
+                        height: MediaQuery.of(context).size.height * 0.7519,
+                        child: PageView.builder(
+                          controller: controller,
+                          // itemCount: pages.length,
+                          itemBuilder: (_, index) {
+                            return pages[index % pages.length];
+                          },
+                        ),
                       ),
-                    ),
+                      Positioned(
+                        top: MediaQuery.of(context).size.height * 0.5853,
+                        child: SmoothPageIndicator(
+                          controller: controller,
+                          count: pages.length,
+                          effect: const WormEffect(
+                            dotHeight: 16,
+                            dotWidth: 16,
+                            type: WormType.thin,
+                            // strokeWidth: 5,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  Positioned(
-                    top:  MediaQuery.of(context).size.width * 0.8,
+                ],
+              ),
+            ),
+              Stack(
+              alignment: Alignment.center,
+                children: <Widget>[
+                  Container(
+                    height: MediaQuery.of(context).size.height*0.0878,
+                    width: MediaQuery.of(context).size.width,
+                    alignment: Alignment.center,
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height*0.0878,
+                    width: MediaQuery.of(context).size.width*0.7292,
+                    alignment: Alignment.center,
                     child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        //Reference Height: 683,428
+                        //Reference Width: 411,4285
+                        padding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.2017, top: MediaQuery.of(context).size.height*0.0293, right: MediaQuery.of(context).size.width*0.2017, bottom: MediaQuery.of(context).size.height*0.0293),
+                        primary: const Color(0xFFffe5e5),
+                      ),
                       onPressed: () => Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => LoginPage()),
                       ),
-                      child: Text('Left to Right'),
+                      child: const Text('Next',
+                      style:  TextStyle(
+                        fontSize: 16,
+                        color: Color(0xFF1e0412),
+                      )),
+
                     ),
                   ),
                 ],
               ),
-            ],
-          ),
+          ],
         ),
       ),
     );
