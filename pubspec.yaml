@@ -61,6 +61,7 @@ flutter:
   assets:
     - assets/earth_loadingscreen.png
     - assets/desktopsitter_loadingscreen.png
+    - assets/standingunderwear_loadingscreen.png
 
   fonts:
     - family: Akshar
