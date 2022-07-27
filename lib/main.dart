@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 
+//import 'package:webview_flutter/webview_flutter.dart';
 void main() {
   runApp(MyApp());
 }
@@ -158,20 +160,20 @@ class _IntroductionState extends State<Introduction> {
                   alignment: Alignment.center,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      //Reference Height: 683,428
-                      //Reference Width: 411,4285
-                      padding: EdgeInsets.only(
-                          left: MediaQuery.of(context).size.width * 0.2017,
-                          top: MediaQuery.of(context).size.height * 0.0293,
-                          right: MediaQuery.of(context).size.width * 0.2017,
-                          bottom: MediaQuery.of(context).size.height * 0.0293),
-                      primary: const Color(0xFFffe5e5),
+                        //Reference Height: 683,428
+                        //Reference Width: 411,4285
+                        padding: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * 0.2017,
+                            top: MediaQuery.of(context).size.height * 0.0293,
+                            right: MediaQuery.of(context).size.width * 0.2017,
+                            bottom:
+                                MediaQuery.of(context).size.height * 0.0293),
+                        primary: const Color(0xFFffe5e5),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
-                        )
-                    ),
+                        )),
                     onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => LoginPage()),
+                      MaterialPageRoute(builder: (context) => DecidePage()),
                     ),
                     child: const Text('Next',
                         style: TextStyle(
@@ -189,12 +191,13 @@ class _IntroductionState extends State<Introduction> {
   }
 }
 
-class LoginPage extends StatefulWidget {
+//Maybe change StatelessWidget
+class DecidePage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _DecidePageState createState() => _DecidePageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _DecidePageState extends State<DecidePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -228,31 +231,32 @@ class _LoginPageState extends State<LoginPage> {
             alignment: Alignment.center,
             child: const Text(
               'Finding a date should be simple and fun. \nThere’s someone for everyone!',
-              style: TextStyle(fontSize: 14, fontFamily: "Abhaya Libre Medium",),
-                textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 14,
+                fontFamily: "Abhaya Libre Medium",
+              ),
+              textAlign: TextAlign.center,
             ),
           ),
-
           Container(
             height: 90,
             width: 400,
             alignment: Alignment.center,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                //Reference Height: 683,428
-                //Reference Width: 411,4285
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.2617,
-                    top: MediaQuery.of(context).size.height * 0.020,
-                    right: MediaQuery.of(context).size.width * 0.2617,
-                    bottom: MediaQuery.of(context).size.height * 0.020),
-                primary: const Color(0xFF171C3D),
+                  //Reference Height: 683,428
+                  //Reference Width: 411,4285
+                  padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * 0.2617,
+                      top: MediaQuery.of(context).size.height * 0.020,
+                      right: MediaQuery.of(context).size.width * 0.2617,
+                      bottom: MediaQuery.of(context).size.height * 0.020),
+                  primary: const Color(0xFF171C3D),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
-                  )
-              ),
+                  )),
               onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => LoginPage()),
+                MaterialPageRoute(builder: (context) => Recaptcha()),
               ),
               child: const Text('Sign Up',
                   style: TextStyle(
@@ -262,27 +266,25 @@ class _LoginPageState extends State<LoginPage> {
                   )),
             ),
           ),
-
           Container(
             height: 55,
             width: 295,
             alignment: Alignment.center,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                //Reference Height: 683,428
-                //Reference Width: 411,4285
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.2617,
-                    top: MediaQuery.of(context).size.height * 0.020,
-                    right: MediaQuery.of(context).size.width * 0.2617,
-                    bottom: MediaQuery.of(context).size.height * 0.020),
-                primary: Color(0xFFffe5e5),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                )
-              ),
+                  //Reference Height: 683,428
+                  //Reference Width: 411,4285
+                  padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * 0.2617,
+                      top: MediaQuery.of(context).size.height * 0.020,
+                      right: MediaQuery.of(context).size.width * 0.2617,
+                      bottom: MediaQuery.of(context).size.height * 0.020),
+                  primary: Color(0xFFffe5e5),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  )),
               onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => LoginPage()),
+                MaterialPageRoute(builder: (context) => DecidePage()),
               ),
               child: const Text('Sign in',
                   style: TextStyle(
@@ -292,6 +294,45 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class Recaptcha extends StatefulWidget {
+  @override
+  _Recaptcha createState() => _Recaptcha();
+}
+
+class _Recaptcha extends State<Recaptcha> {
+  void initState() {
+    super.initState();
+
+    // Enable virtual display.
+    /*  if (Theme
+        .of(context)
+        .platform == TargetPlatform.android) {
+      WebView.platform = AndroidWebView();
+    }
+
+   */
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        child: WebViewPlus(
+          javascriptMode: JavascriptMode.unrestricted,
+          onWebViewCreated: (controller){
+            controller.loadUrl("assets/index.html");
+          },
+          javascriptChannels: {
+            JavascriptChannel(name: 'Captcha', onMessageReceived: (JavascriptMessage message){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Introduction()));
+            })
+          },
+        ),
       ),
     );
   }
