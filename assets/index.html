@@ -3,14 +3,18 @@
 <head>
     <title>reCAPTCHA</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="index.css">
 </head>
-<div align="center">
-    <div class="container">
-        <form action="" method="get">
-            <div class="g-recaptcha" data-sitekey=" 6LctCSIhAAAAAITFCYTuW5iZKxHfHZWP_xOf-tYX" data-callback="captchaCallback"></div>
-        </form>
-    </div>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<div class="center">
+<form action="" method="get">
+    <div class="g-recaptcha" data-sitekey="6LctCSIhAAAAAITFCYTuW5iZKxHfHZWP_xOf-tYX"
+         data-callback="captchaCallback" style="transform:scale(0.85);webkit-transform:scale(0.85);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
+</form>
 </div>
+</body>
+
 <script>
       function captchaCallback(response){
         //console.log(response);
@@ -18,5 +22,7 @@
           Captcha.postMessage(response);
         }
       }
-    </script>
+
+</script>
 </html>
+

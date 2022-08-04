@@ -3,8 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:webview_flutter_plus/webview_flutter_plus.dart';
-
-//import 'package:webview_flutter/webview_flutter.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 void main() {
   runApp(MyApp());
 }
@@ -305,26 +304,15 @@ class Recaptcha extends StatefulWidget {
 }
 
 class _Recaptcha extends State<Recaptcha> {
-  void initState() {
-    super.initState();
-
-    // Enable virtual display.
-    /*  if (Theme
-        .of(context)
-        .platform == TargetPlatform.android) {
-      WebView.platform = AndroidWebView();
-    }
-
-   */
-  }
-
+  late WebViewPlusController _controller;
+  double _height = 1;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return Container(
         child: WebViewPlus(
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (controller){
+            _controller = controller;
             controller.loadUrl("assets/index.html");
           },
           javascriptChannels: {
@@ -332,8 +320,26 @@ class _Recaptcha extends State<Recaptcha> {
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Introduction()));
             })
           },
+
+          onPageFinished: (url){
+            _controller.getHeight().then((double height){
+              print("Height: " + height.toString());
+              setState((){
+                _height = height;
+              });
+            });
+          },
         ),
-      ),
     );
   }
 }
+
+
+
+
+// Enable virtual display.
+/*  if (Theme
+        .of(context)
+        .platform == TargetPlatform.android) {
+      WebView.platform = AndroidWebView();
+   */

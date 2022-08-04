@@ -1,0 +1,14 @@
+.center
+    {
+    margin-top:100%
+    }
+
+.g-recaptcha>div>div{
+   width: 100% !important;
+   text-align: center;
+   position: relative;
+   background-color: #626262
+}
+
+
+
