@@ -115,7 +115,7 @@ class _IntroductionState extends State<Introduction> {
               child: PageView(
                 children: [
                   Column(
-                    children: <Widget>[
+                    children: [
                       Container(),
                       Container(
                         height: MediaQuery.of(context).size.height * 0.7519,
@@ -127,8 +127,7 @@ class _IntroductionState extends State<Introduction> {
                           },
                         ),
                       ),
-                      Positioned(
-                        top: MediaQuery.of(context).size.height * 0.5853,
+                      Container(
                         child: SmoothPageIndicator(
                           controller: controller,
                           count: pages.length,
@@ -207,15 +206,16 @@ class _DecidePageState extends State<DecidePage> {
             alignment: Alignment.topCenter,
             margin: EdgeInsets.symmetric(horizontal: 0, vertical: 4),
             width: MediaQuery.of(context).size.width,
-            height: 430,
+            height: MediaQuery.of(context).size.height * 0.6291811280778663,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/robothello_welcome.png"),
               ),
             ),
           ),
+
           Container(
-            height: 26,
+            height: MediaQuery.of(context).size.height *  0.041043510069824475,
             width: MediaQuery.of(context).size.width,
             alignment: Alignment.center,
             child: const Text('Welcome to Lube.',
@@ -225,8 +225,8 @@ class _DecidePageState extends State<DecidePage> {
                     fontWeight: FontWeight.bold)),
           ),
           Container(
-            height: 40,
-            width: 295,
+            height: MediaQuery.of(context).size.height * 0.05852847703049919,
+            width: MediaQuery.of(context).size.height * 0.7170140133704884,
             alignment: Alignment.center,
             child: const Text(
               'Finding a date should be simple and fun. \nThere’s someone for everyone!',
@@ -238,8 +238,8 @@ class _DecidePageState extends State<DecidePage> {
             ),
           ),
           Container(
-            height: 90,
-            width: 400,
+            height: MediaQuery.of(context).size.height * 0.13168907331862318,
+            width: MediaQuery.of(context).size.height *  0.9722223910108319,
             alignment: Alignment.center,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -266,13 +266,11 @@ class _DecidePageState extends State<DecidePage> {
             ),
           ),
           Container(
-            height: 55,
-            width: 295,
+            height: MediaQuery.of(context).size.height * 0.08047665591693638,
+            width: MediaQuery.of(context).size.width * 0.7170140133704884,
             alignment: Alignment.center,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  //Reference Height: 683,428
-                  //Reference Width: 411,4285
                   padding: EdgeInsets.only(
                       left: MediaQuery.of(context).size.width * 0.2617,
                       top: MediaQuery.of(context).size.height * 0.020,
@@ -323,7 +321,6 @@ class _Recaptcha extends State<Recaptcha> {
 
           onPageFinished: (url){
             _controller.getHeight().then((double height){
-              print("Height: " + height.toString());
               setState((){
                 _height = height;
               });
@@ -346,7 +343,7 @@ class _SignUpPageState extends State<SignUpPage> {
       body: Column(
         children: <Widget>[
           Container(
-            height: 26,
+            height: MediaQuery.of(context).size.height * 0.038043510069824475,
             width: MediaQuery.of(context).size.width,
             alignment: Alignment.center,
             child: const Text('Create Account',
@@ -356,8 +353,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     fontWeight: FontWeight.bold)),
           ),
           Container(
-            height: 40,
-            width: 295,
+            height: MediaQuery.of(context).size.height * 0.05852847703049919,
+            width: MediaQuery.of(context).size.width * 0.7170140133704884,
             alignment: Alignment.center,
             child: const Text(
               'Connect with new people today!',
@@ -370,8 +367,8 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
           ),
           Container(
-            height: 90,
-            width: 400,
+            height: MediaQuery.of(context).size.height * 0.13168907331862318,
+            width: MediaQuery.of(context).size.width * 0.9722223910108319,
             alignment: Alignment.center,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -398,8 +395,10 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
           ),
           Container(
-            height: 55,
-            width: 295,
+            //Reference Height: 683,428
+            //Reference Width: 411,4285
+            height: MediaQuery.of(context).size.height * 0.08047665591693638,
+            width: MediaQuery.of(context).size.width * 0.7170140133704884,
             alignment: Alignment.center,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
