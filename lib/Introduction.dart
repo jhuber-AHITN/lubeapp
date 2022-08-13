@@ -40,7 +40,7 @@ class _IntroductionState extends State<Introduction> {
   void initState(){
     super.initState();
     InternetConnectionChecker().onStatusChange.listen((status) {
-      if(status == InternetConnectionStatus.disconnected) {
+      if(status == InternetConnectionStatus.connected) {
         Navigator.of(context).push(
             MaterialPageRoute(builder: (context) => LoadingPage()));
       }
