@@ -40,7 +40,7 @@ class _IntroductionState extends State<Introduction> {
   void initState(){
     super.initState();
     InternetConnectionChecker().onStatusChange.listen((status) {
-      if(status == InternetConnectionStatus.connected) {
+      if(status == InternetConnectionStatus.disconnected) {
         Navigator.of(context).push(
             MaterialPageRoute(builder: (context) => LoadingPage()));
       }
@@ -84,7 +84,7 @@ class _IntroductionState extends State<Introduction> {
             Positioned(
               top: MediaQuery.of(context).size.height * 0.667,
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.1463,
+                height: MediaQuery.of(context).size.width * 0.4861,
                 width: MediaQuery.of(context).size.width * 0.4861,
                 child: Text(texts[index],
                     textAlign: TextAlign.center,

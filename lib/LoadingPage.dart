@@ -72,14 +72,13 @@ class _LoadingPageState extends State<LoadingPage>  with TickerProviderStateMixi
                 ),
 
 
+
                 Container(
                   alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height * 0.09510877517456118,
+                  height: MediaQuery.of(context).size.height * 0.1410877517456118,
                   margin: EdgeInsets.all(5),
                   width: MediaQuery.of(context).size.width,
                   child: SizedBox(
-                    //Reference Height: 683,428
-//Reference Width: 411,4285
                     height: 55,
                     width: 55,
                     child: Container(
@@ -96,7 +95,7 @@ class _LoadingPageState extends State<LoadingPage>  with TickerProviderStateMixi
 
                 Container(
                   alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height * 0.21484966960674715,
+                  height: MediaQuery.of(context).size.height * 0.14484966960674715,
                   width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
