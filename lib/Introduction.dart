@@ -1,22 +1,24 @@
+import 'dart:io';
+import 'dart:ui';
+
 import 'package:app/LoadingPage.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:overlay_support/overlay_support.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'DecidePage.dart';
-import 'Recaptcha.dart';
 
 class Introduction extends StatefulWidget {
   @override
   _IntroductionState createState() => _IntroductionState();
 }
 
-class _IntroductionState extends State<Introduction> {
+class _IntroductionState extends State<Introduction> with WidgetsBindingObserver{
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
   bool hasInternet = false;
+  var s = AppLifecycleState.resumed;
   ConnectivityResult result = ConnectivityResult.none;
   static List<String> images = [
     'assets/earth_loadingscreen.png',
@@ -39,12 +41,25 @@ class _IntroductionState extends State<Introduction> {
 
   void initState(){
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     InternetConnectionChecker().onStatusChange.listen((status) {
-      if(status == InternetConnectionStatus.disconnected) {
+      if(status == InternetConnectionStatus.disconnected && s != AppLifecycleState.paused) {
         Navigator.of(context).push(
             MaterialPageRoute(builder: (context) => LoadingPage()));
       }
     });
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    s = state;
+    print(state);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
   }
 
   Widget build(BuildContext context) {
@@ -75,7 +90,7 @@ class _IntroductionState extends State<Introduction> {
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                         fontFamily: 'Akshar',
-                        fontSize: 28,
+                        fontSize: 26,
                         fontWeight: FontWeight.w400,
                         letterSpacing: 0.36,
                         color: Colors.white)),
@@ -90,7 +105,7 @@ class _IntroductionState extends State<Introduction> {
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                         fontFamily: 'AbhayaLibre-SemiBold',
-                        fontSize: 14,
+                        fontSize: 15,
                         fontWeight: FontWeight.w400,
                         color: Colors.white)),
               ),
@@ -159,8 +174,6 @@ class _IntroductionState extends State<Introduction> {
                   alignment: Alignment.center,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      //Reference Height: 683,428
-                      //Reference Width: 411,4285
                         padding: EdgeInsets.only(
                             left: MediaQuery.of(context).size.width * 0.2017,
                             top: MediaQuery.of(context).size.height * 0.0293,

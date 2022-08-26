@@ -1,6 +1,8 @@
+import 'package:app/profile_creation.dart';
 import 'package:flutter/material.dart';
 
 import 'Recaptcha.dart';
+import 'SignInPage.dart';
 
 //Maybe change StatelessWidget
 class DecidePage extends StatefulWidget {
@@ -68,7 +70,7 @@ class _DecidePageState extends State<DecidePage> {
                     borderRadius: BorderRadius.circular(20),
                   )),
               onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => Recaptcha()),
+                MaterialPageRoute(builder: (context) => birthday_input()),
               ),
               child: const Text('Sign Up',
                   style: TextStyle(
@@ -94,7 +96,7 @@ class _DecidePageState extends State<DecidePage> {
                     borderRadius: BorderRadius.circular(20),
                   )),
               onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => DecidePage()),
+                MaterialPageRoute(builder: (context) => SignInPage()),
               ),
               child: const Text('Sign in',
                   style: TextStyle(
