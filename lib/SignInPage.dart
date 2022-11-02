@@ -20,7 +20,6 @@ class _SignInPageState extends State<SignInPage> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
-
     super.dispose();
   }
 
@@ -128,7 +127,7 @@ class _SignInPageState extends State<SignInPage> {
           ),
           Padding(
             padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.0404351006982447),
+                top: MediaQuery.of(context).size.height * 0.124351006982447),
             child: Center(
               child: Container(
                   height:
@@ -147,7 +146,7 @@ class _SignInPageState extends State<SignInPage> {
           ),
           Padding(
             padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.3804351006982447),
+                top: MediaQuery.of(context).size.height * 0.4704351006982447),
             child: Center(
               child: Container(
                   height: MediaQuery.of(context).size.height * 0.18290149072031,
@@ -176,7 +175,7 @@ class _SignInPageState extends State<SignInPage> {
           ),
           Padding(
             padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.6584453665931159),
+                top: MediaQuery.of(context).size.height * 0.7484453665931159),
             child: Center(
               child: Container(
                 child: ElevatedButton(

@@ -95,7 +95,7 @@ class _SignUpPageState extends State<SignUpPage> {
           _passwordconfirmerrorText == null &&
           _passworderrorText == null) {
         Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => birthday_input()));
+            MaterialPageRoute(builder: (context) => profile_creation()));
 
       }
     } else {
@@ -116,7 +116,7 @@ class _SignUpPageState extends State<SignUpPage> {
       body: Stack(
         children: <Widget>[
           Container(
-            height: size.height - 200,
+            height: size.height - 230,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
@@ -128,7 +128,7 @@ class _SignUpPageState extends State<SignUpPage> {
           AnimatedPositioned(
             duration: Duration(milliseconds: 500),
             curve: Curves.easeOutQuad,
-            top: keyboardOpen ? -size.height / 4.5 : 0.0,
+            top: keyboardOpen ? -size.height / 4.8 : 0.0,
             child: WaveWidget(
               size: size,
               yOffset: size.height / 3.8,
@@ -178,7 +178,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.17704864301726005),
+            padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.18704864301726005),
             child: Center(
               child: Container(
                   height: MediaQuery.of(context).size.height * 0.15632119257624797,
@@ -211,7 +211,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09657198710032366),
+            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08657198710032366),
             child: Center(
               child: Container(
                   height: MediaQuery.of(context).size.height * 0.15632119257624797,
@@ -256,7 +256,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.3614133456633325),
+            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.3514133456633325),
             child: Center(
               child: Container(
                   height: MediaQuery.of(context).size.height * 0.15632119257624797,
@@ -311,9 +311,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   )),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.716973843623615, left: MediaQuery.of(context).size.width * 0.05833334346064991),
-            child: Row(
+        Center(
+          child: Padding(
+            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.489973843623615, right: MediaQuery.of(context).size.width * 0.055),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Transform.scale(
                   scale: 0.7,
@@ -336,6 +338,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ],
             ),
+          ),
           ),
           Padding(
             padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.7084453665931159),

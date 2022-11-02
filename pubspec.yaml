@@ -36,16 +36,22 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
   smooth_page_indicator: ^1.0.0+2
-  flutter_screenutil: ^5.5.3+2
+  flutter_screenutil: ^5.5.4
   webview_flutter_plus: ^0.3.0+2
-  webview_flutter: ^3.0.4
   http: ^0.13.5
   http_status_code: ^0.0.2
   internet_connection_checker: ^0.0.1+4
   overlay_support: ^2.0.1
   connectivity_plus: ^2.3.6+1
-  lottie: ^1.4.1
+  lottie: ^1.4.2
   flutter_holo_date_picker: ^1.0.6
+  font_awesome_flutter: ^10.1.0
+  country_state_city_picker: ^1.2.8
+  image_picker: ^0.8.5+3
+  video_player: ^2.4.7
+  flutter_isolate: ^2.0.2
+  country_state_city_pro: ^0.0.3
+
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +85,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/grapes.png
+    - assets/icons/
 
   fonts:
     - family: Akshar
@@ -93,6 +101,7 @@ flutter:
     - family: Poppins-Medium
       fonts:
         - asset: assets/FontsFree-Net-Poppins-Medium.ttf
+        - asset: assets/Poppins-Medium.ttf
 
 
   # To add assets to your application, add an assets section, like this:
