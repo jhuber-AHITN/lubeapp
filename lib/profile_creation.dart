@@ -1,3 +1,4 @@
+import 'package:app/SignUpPage.dart';
 import 'package:app/birthday_pick.dart';
 import 'package:app/interests.dart';
 import 'package:country_state_city_pro/country_state_city_pro.dart';
@@ -16,6 +17,7 @@ import 'country_state_city_picker.dart';
 import 'introduction/Introduction.dart';
 
 import 'introduction/Introduction.dart';
+import 'mainPage.dart';
 
 //Submit methode einbauen
 //Male / Female nicht weiterpushen sondern farbe ändern das es ausgewählt ist
@@ -1658,7 +1660,11 @@ class _profile_creationState extends State<profile_creation> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     )),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => mainPage()),
+                  );
+                },
                 child: Text(
                   'Finish',
                   style: Theme.of(context).textTheme.headline6,
